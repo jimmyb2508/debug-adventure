@@ -26,7 +26,7 @@ Character.prototype = {
     }
   },
   _speak: function () {
-    return this.dialog;
+    return this.dialogue;
   },
 };
 
