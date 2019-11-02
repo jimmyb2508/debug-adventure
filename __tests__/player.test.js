@@ -31,17 +31,17 @@ describe('constructor function', () => {
   it('returns an object', () => {
     expect(player).toBeInstanceOf(Object);
   });
-  it('inherits from character', () => {
+  xit('inherits from character', () => {
     expect(player.name).toBe(config.name);
     expect(player.health).toBe(config.health);
     expect(player.maxHealth).toBe(config.maxHealth);
     expect(player.dialogue).toBe(config.dialogue);
   });
-  it('has a weapon slot', () => {
+  xit('has a weapon slot', () => {
     expect(player).toHaveProperty('equippedWeapon');
   });
   describe('equip', () => {
-    it('can equip a weapon', () => {
+    xit('can equip a weapon', () => {
       player.equip(sword);
       expect(player.equippedWeapon).toEqual(sword);
     });
@@ -51,10 +51,10 @@ describe('constructor function', () => {
       player.equip(sword);
       player.attack(trainingDummy);
     });
-    it('can attack with a weapon', () => {
+    xit('can attack with a weapon', () => {
       expect(trainingDummy.health).toBe(trainingDummy.maxHealth - sword.damage);
     });
-    it('can describe its attack', () => {
+    xit('can describe its attack', () => {
       const attackLine = `${player.name} lets out a ${player.dialogue}, and hits ${trainingDummy.name} with ${sword.name} for ${sword.damage} damage!`;
       expect(player.attack(trainingDummy)).toBe(attackLine);
     });

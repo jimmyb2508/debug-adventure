@@ -38,33 +38,33 @@ describe('character', () => {
     it('returns alive if health is above 0', () => {
       expect(character.isAlive).toBe(true);
     });
-    xit('returns dead if health is 0', () => {
+    it('returns dead if health is 0', () => {
       character.health = 0;
       expect(character.isAlive).toBe(false);
     });
   });
   describe('take damage', () => {
-    xit('can take damage', () => {
+    it('can take damage', () => {
       const startingHealth = character.health;
       const damage = 1;
       character._takeDamage(damage);
       expect(character.health).toBe(startingHealth - damage);
     });
-    xit('cannot be damaged to less than 0', () => {
+    it('cannot be damaged to less than 0', () => {
       const damage = 100;
       character._takeDamage(damage);
       expect(character.health).toBe(0);
     });
   });
   describe('healing', () => {
-    xit('can recover health', () => {
+    it('can recover health', () => {
       character.health = 1;
       const startingHealth = character.health;
       const potion = 5;
       character._heal(potion);
       expect(character.health).toBe(startingHealth + potion);
     });
-    xit('cannot recover more than its maxHealth', () => {
+    it('cannot recover more than its maxHealth', () => {
       character.health = 1;
       const potion = 100;
       character._heal(potion);
