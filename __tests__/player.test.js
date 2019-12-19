@@ -31,30 +31,35 @@ describe('constructor function', () => {
   it('returns an object', () => {
     expect(player).toBeInstanceOf(Object);
   });
-  xit('inherits from character', () => {
+  it('inherits from character', () => {
     expect(player.name).toBe(config.name);
     expect(player.health).toBe(config.health);
     expect(player.maxHealth).toBe(config.maxHealth);
     expect(player.dialogue).toBe(config.dialogue);
   });
-  xit('has a weapon slot', () => {
+  it('has a weapon slot', () => {
     expect(player).toHaveProperty('equippedWeapon');
   });
   describe('equip', () => {
-    xit('can equip a weapon', () => {
+    it('can equip a weapon', () => {
       player.equip(sword);
       expect(player.equippedWeapon).toEqual(sword);
     });
   });
   describe('attack', () => {
     beforeEach(() => {
+      console.log(trainingDummy.maxHealth);
+      console.log(trainingDummy.health)
+      console.log(sword.damage);
+      console.log(player);
       player.equip(sword);
+      console.log(player.equippedWeapon.damage);
       player.attack(trainingDummy);
     });
-    xit('can attack with a weapon', () => {
+    it('can attack with a weapon', () => {
       expect(trainingDummy.health).toBe(trainingDummy.maxHealth - sword.damage);
     });
-    xit('can describe its attack', () => {
+    it('can describe its attack', () => {
       const attackLine = `${player.name} lets out a ${player.dialogue}, and hits ${trainingDummy.name} with ${sword.name} for ${sword.damage} damage!`;
       expect(player.attack(trainingDummy)).toBe(attackLine);
     });
